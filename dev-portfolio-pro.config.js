@@ -30,7 +30,7 @@ module.exports = {
       impact: "Streamlining task management for teams in over 100 countries.",
       description:
         "TaskMaster is a collaborative task management tool allowing teams to organize tasks, set deadlines, and track progress seamlessly.",
-      image_url: "/projects/code2.jpg",
+      image_url: "",
       url: "",
       github_url: "https://github.com/taskmaster/taskmaster-app",
       live_url: "https://taskmaster-app.com",

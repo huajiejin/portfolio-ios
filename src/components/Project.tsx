@@ -27,17 +27,23 @@ export default function Project({ project, className }: { project: Project, clas
           }
         </div>
       </div>
-      <div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl">
-        <Image
-          src={project.image_url}
-          alt={`Image of ${project.name}`}
-          className="w-full h-full object-cover object-center"
-          width={1080}
-          height={1080}
-          layout="responsive"
-          priority
-        />
-      </div>
+      {
+        project.image_url ? (
+          <div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl">
+            <Image
+              src={project.image_url}
+              alt={`Image of ${project.name}`}
+              className="w-full h-full object-cover object-center"
+              width={1080}
+              height={1080}
+              layout="responsive"
+              priority
+            />
+          </div>
+        ) : (
+          <div className="max-w-md w-full" />
+        )
+      }
     </div>
   );
 }
