@@ -24,60 +24,60 @@ export default function Home() {
         <div className="bg-white dark:bg-stone-900">
           <div className="flex justify-center items-center md:gap-24 flex-wrap-reverse min-h-screen px-8 py-16 mx-auto snap-start">
             <div className="max-w-md">
-              <div className="text-4xl font-semibold leading-relaxed">Hi, I'm {config.name},</div>
+              <div className="text-4xl font-semibold leading-relaxed">Hi, I&apos;m {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
               <div className="mt-4 whitespace-pre-wrap">{config.bio}</div>
               <div className="mt-4 flex gap-6">
-              {
-                validSocialLinks.length > 0 && (
-                  <SocialIconsList socials={validSocialLinks} className="flex justify-center items-center gap-3" />
-                )
-              }
-              {
-                // show download resume button if the resume link is provided
-                config.resume_url && (
-                  <a
-                    href={config.resume_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary dark:text-blue-500 underline"
-                  >
-                    Download Resume
-                  </a>
-                )
-              }
+                {
+                  validSocialLinks.length > 0 && (
+                    <SocialIconsList socials={validSocialLinks} className="flex justify-center items-center gap-3" />
+                  )
+                }
+                {
+                  // show download resume button if the resume link is provided
+                  config.resume_url && (
+                    <a
+                      href={config.resume_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary dark:text-blue-500 underline"
+                    >
+                      Download Resume
+                    </a>
+                  )
+                }
               </div>
             </div>
             <div className="flex-shrink-0 w-60 h-60 overflow-hidden rounded-full shadow-xl">
-                <Image
-                  src={config.avatar_url}
-                  alt={`Avatar of ${config.name}`}
-                  className="w-full h-full object-cover object-center"
-                  width={480}
-                  height={480}
-                  priority
-                />
+              <Image
+                src={config.avatar_url}
+                alt={`Avatar of ${config.name}`}
+                className="w-full h-full object-cover object-center"
+                width={480}
+                height={480}
+                priority
+              />
             </div>
           </div>
         </div>
-          {
-            config.projects?.length > 0 && (
-              <div id="projects" className="">
-                  {
-                    config.projects.map((project, index) => {
-                      return (
-                        <div key={project.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
-                          <Project
-                            project={project}
-                            className="px-8 py-32 mx-auto snap-start"
-                            />
-                        </div>
-                      );
-                    })
-                  }
-              </div>
-            )
-          }
+        {
+          config.projects?.length > 0 && (
+            <div id="projects" className="">
+              {
+                config.projects.map((project, index) => {
+                  return (
+                    <div key={project.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
+                      <Project
+                        project={project}
+                        className="px-8 py-32 mx-auto snap-start"
+                      />
+                    </div>
+                  );
+                })
+              }
+            </div>
+          )
+        }
       </main>
       <footer className="py-16">
         {
