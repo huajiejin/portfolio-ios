@@ -1,14 +1,31 @@
+'use client';
+
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
 import { CalendarIcon, ArrowTopRightOnSquareIcon, ArrowRightIcon } from '@heroicons/react/24/solid'
 import Tag from './Tag';
 import NewTabButton from './NewTabButton';
+import { MotionValue, motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+
+
+function useParallax(value: MotionValue<number>, distance: number) {
+  return useTransform(value, [0, 1], [-distance, distance]);
+}
 
 type Project = typeof config.projects[0];
 
 export default function Project({ project, className }: { project: Project, className?: string}) {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({ target: container, offset: ['start end', 'end start'] });
+  const y = useParallax(scrollYProgress, 100);
+
   return (
-    <div key={project.name} className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}>
+    <div
+      key={project.name}
+      className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}
+      ref={container}
+      >
       <div className="max-w-md">
         <div className="text-sm font-medium text-stone-500">{project.name}</div>
         <p className="mt-4 text-4xl font-semibold">{project.impact}</p>
@@ -52,7 +69,7 @@ export default function Project({ project, className }: { project: Project, clas
       </div>
       {
         project.image_url ? (
-          <div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl">
+          <motion.div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl" style={{y}}>
             <Image
               src={project.image_url}
               alt={`Image of ${project.name}`}
@@ -61,7 +78,7 @@ export default function Project({ project, className }: { project: Project, clas
               height={1080}
               priority
             />
-          </div>
+          </motion.div>
         ) : (
           <div className="max-w-md w-full" />
         )
