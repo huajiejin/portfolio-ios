@@ -1,14 +1,7 @@
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
 import Project from '@/components/Project';
-
-// Socials logos
-const socialsLogos: { [key: string]: string } = {
-  github: "/socials/github.svg",
-  linkedin: "/socials/linkedin.svg",
-  x: "/socials/x.svg",
-}
-
+import { SocialIconsList } from '@/components/SocialIconsList';
 
 // Valid social links
 const validSocialLinks = Object.entries(config.socials || {})
@@ -37,34 +30,7 @@ export default function Home() {
               <div className="mt-4 flex gap-6">
               {
                 validSocialLinks.length > 0 && (
-                    <div className="flex gap-3">
-                    {
-                      validSocialLinks
-                        .map(([key, value]) => {
-                          return (
-                            <a
-                              key={key}
-                              href={value}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {/* if the socialsLogos object has the key, render the image */}
-                              {socialsLogos[key] ? (
-                                <Image
-                                  src={socialsLogos[key]}
-                                  alt={key}
-                                  width={20}
-                                  height={20}
-                                />
-                              ) : (
-                                // otherwise, render the key
-                                key
-                              )}
-                            </a>
-                          );
-                        })
-                    }
-                  </div>
+                  <SocialIconsList socials={validSocialLinks} className="flex justify-center items-center gap-3" />
                 )
               }
               {
@@ -97,13 +63,11 @@ export default function Home() {
           {
             config.projects?.length > 0 && (
               <div id="projects" className="">
-                  {/* <h2 className="font-bold mb-8">Featured Projects</h2> */}
                   {
                     config.projects.map((project, index) => {
                       return (
-                        <div className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
+                        <div key={project.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
                           <Project
-                            key={project.name}
                             project={project}
                             className="px-8 py-32 mx-auto"
                             />
@@ -115,6 +79,17 @@ export default function Home() {
             )
           }
       </main>
+      <footer className="py-16">
+        {
+          validSocialLinks.length > 0 && (
+            <SocialIconsList socials={validSocialLinks} className="mt-4 flex justify-center items-center gap-4" />
+          )
+        }
+        <div className="mt-4 flex justify-center items-center gap-2 text-xs text-stone-500">
+          <span>&#64;{new Date().getFullYear()} All Rights Reserved.</span>
+          <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline">Dev Portfolio Pro</a></span>
+        </div>
+      </footer>
     </div>
   );
 }
