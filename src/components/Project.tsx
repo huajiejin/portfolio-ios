@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
-import { CalendarIcon } from '@heroicons/react/24/solid'
+import { CalendarIcon, ArrowTopRightOnSquareIcon, ArrowRightIcon } from '@heroicons/react/24/solid'
 import Tag from './Tag';
+import NewTabButton from './NewTabButton';
 
 type Project = typeof config.projects[0];
 
@@ -26,6 +27,28 @@ export default function Project({ project, className }: { project: Project, clas
             ))
           }
         </div>
+        {
+          (project.live_url || project.url) && (
+            <div className="mt-4 flex justify-start items-center gap-2">
+              {
+                project.live_url && (
+                  <NewTabButton href={project.live_url}>
+                    Live demo
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                  </NewTabButton>
+                )
+              }
+              {
+                project.url && (
+                  <NewTabButton href={project.url}>
+                    Learn more
+                    <ArrowRightIcon className="h-4 w-4" />
+                  </NewTabButton>
+                )
+              }
+            </div>
+          )
+        }
       </div>
       {
         project.image_url ? (
@@ -33,10 +56,9 @@ export default function Project({ project, className }: { project: Project, clas
             <Image
               src={project.image_url}
               alt={`Image of ${project.name}`}
-              className="w-full h-full object-cover object-center"
+              className="w-full h-auto object-cover object-center"
               width={1080}
               height={1080}
-              layout="responsive"
               priority
             />
           </div>

@@ -19,9 +19,8 @@ module.exports = {
       description:
         "EcoSave helps users track and reduce their environmental impact by providing eco-friendly tips, energy usage monitoring, and community challenges.",
       image_url: "/projects/code1.jpg",
-      url: "",
-      github_url: "https://github.com/ecosave/ecosave-app",
-      live_url: "https://ecosave-app.com",
+      url: "https://github.com/change-me",
+      live_url: "https://change-me.com",
       tech_stack: ["React", "Node.js", "Express", "MongoDB", "Jest", "Cypress"],
     },
     {
@@ -31,9 +30,8 @@ module.exports = {
       description:
         "TaskMaster is a collaborative task management tool allowing teams to organize tasks, set deadlines, and track progress seamlessly.",
       image_url: "",
-      url: "",
-      github_url: "https://github.com/taskmaster/taskmaster-app",
-      live_url: "https://taskmaster-app.com",
+      url: "https://github.com/change-me",
+      live_url: "",
       tech_stack: [
         "Angular",
         "Java",
@@ -56,9 +54,8 @@ module.exports = {
       description:
         "MobileChat is a mobile messaging app facilitating real-time communication with friends and groups, supporting multimedia sharing and encryption.",
       image_url: "/projects/mobile-app.jpg",
-      url: "",
-      github_url: "https://github.com/mobilechat/mobilechat-app",
-      live_url: "https://mobilechat-app.com",
+      url: "https://github.com/change-me",
+      live_url: "",
       tech_stack: ["React Native", "Node.js", "Express", "MongoDB"],
     },
     {
@@ -70,7 +67,6 @@ module.exports = {
         "VisionSense employs computer vision algorithms to analyze real-time video feeds for surveillance, object recognition, and anomaly detection.",
       image_url: "/projects/robot.jpg",
       url: "",
-      github_url: "https://github.com/visionsense/visionsense-app",
       live_url: "",
       tech_stack: [
         "TensorFlow.js",
