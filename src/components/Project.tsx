@@ -10,10 +10,10 @@ export default function Project({ project, className }: { project: Project, clas
     <div key={project.name} className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}>
       <div className="max-w-md">
         <div className="text-sm font-medium text-stone-500">{project.name}</div>
-        <p className="mt-2 text-4xl font-semibold">{project.impact}</p>
+        <p className="mt-4 text-4xl font-semibold">{project.impact}</p>
         {
           project.description && (
-            <p className="mt-2">{project.description}</p>
+            <p className="mt-4">{project.description}</p>
           )
         }
         <div className="mt-4 flex flex-wrap items-center gap-2">

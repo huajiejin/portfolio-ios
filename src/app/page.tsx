@@ -33,8 +33,8 @@ export default function Home() {
             <div className="max-w-md">
               <div className="text-4xl font-semibold leading-relaxed">Hi, I'm {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
-              <div className="mt-8 whitespace-pre-wrap">{config.bio}</div>
-              <div className="mt-6 flex gap-6">
+              <div className="mt-4 whitespace-pre-wrap">{config.bio}</div>
+              <div className="mt-4 flex gap-6">
               {
                 validSocialLinks.length > 0 && (
                     <div className="flex gap-3">
