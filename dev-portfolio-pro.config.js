@@ -14,7 +14,7 @@ module.exports = {
   projects: [
     {
       name: "EcoSave",
-      date: "2023",
+      date: "2024",
       impact: "Empowering over 10,000 users to reduce their carbon footprint.",
       description:
         "EcoSave helps users track and reduce their environmental impact by providing eco-friendly tips, energy usage monitoring, and community challenges.",
@@ -22,11 +22,11 @@ module.exports = {
       url: "",
       github_url: "https://github.com/ecosave/ecosave-app",
       live_url: "https://ecosave-app.com",
-      tech_stack: ["React", "Node.js", "Express", "MongoDB"],
+      tech_stack: ["React", "Node.js", "Express", "MongoDB", "Jest", "Cypress"],
     },
     {
       name: "TaskMaster",
-      date: "2022",
+      date: "2023",
       impact: "Streamlining task management for teams in over 100 countries.",
       description:
         "TaskMaster is a collaborative task management tool allowing teams to organize tasks, set deadlines, and track progress seamlessly.",
@@ -34,11 +34,23 @@ module.exports = {
       url: "",
       github_url: "https://github.com/taskmaster/taskmaster-app",
       live_url: "https://taskmaster-app.com",
-      tech_stack: ["React", "Node.js", "Express", "MongoDB"],
+      tech_stack: [
+        "Angular",
+        "Java",
+        "Maven",
+        "JUnit",
+        "Spring Boot",
+        "PostgreSQL",
+        "Kafka",
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "AWS Lambda",
+      ],
     },
     {
       name: "MobileChat",
-      date: "2023",
+      date: "2022",
       impact:
         "Connecting users on the go with seamless communication across 50 countries.",
       description:
@@ -51,7 +63,7 @@ module.exports = {
     },
     {
       name: "VisionSense",
-      date: "2024",
+      date: "2021",
       impact:
         "Enhancing safety and efficiency through computer vision in 20 industries.",
       description:
@@ -60,7 +72,14 @@ module.exports = {
       url: "",
       github_url: "https://github.com/visionsense/visionsense-app",
       live_url: "",
-      tech_stack: ["TensorFlow.js", "Node.js", "Express"],
+      tech_stack: [
+        "TensorFlow.js",
+        "Node.js",
+        "Express",
+        "Python",
+        "OpenCV",
+        "Jupyter",
+      ],
     },
   ],
 };

@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
+import { CalendarIcon } from '@heroicons/react/24/solid'
+import Tag from './Tag';
 
 type Project = typeof config.projects[0];
 
@@ -14,6 +16,16 @@ export default function Project({ project, className }: { project: Project, clas
             <p className="mt-2">{project.description}</p>
           )
         }
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <Tag text={project.date}>
+            <CalendarIcon className="h-4 w-4 -translate-y-[0.5px]" />
+          </Tag>
+          {
+            project.tech_stack?.map((tech) => (
+              <Tag key={tech} text={tech} />
+            ))
+          }
+        </div>
       </div>
       <div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl">
         <Image
