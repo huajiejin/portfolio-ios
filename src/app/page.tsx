@@ -22,7 +22,7 @@ export default function Home() {
       </header>
       <main className="bg-stone-50 dark:bg-stone-950">
         <div className="bg-white dark:bg-stone-900">
-          <div className="flex justify-center items-center md:gap-24 flex-wrap-reverse min-h-screen px-8 py-16 mx-auto">
+          <div className="flex justify-center items-center md:gap-24 flex-wrap-reverse min-h-screen px-8 py-16 mx-auto snap-start">
             <div className="max-w-md">
               <div className="text-4xl font-semibold leading-relaxed">Hi, I'm {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
@@ -69,7 +69,7 @@ export default function Home() {
                         <div key={project.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
                           <Project
                             project={project}
-                            className="px-8 py-32 mx-auto"
+                            className="px-8 py-32 mx-auto snap-start"
                             />
                         </div>
                       );
