@@ -79,7 +79,7 @@ export default function Home() {
           )
         }
       </main>
-      <footer className="py-16">
+      <footer className="py-16 snap-start">
         {
           validSocialLinks.length > 0 && (
             <SocialIconsList socials={validSocialLinks} className="mt-4 flex justify-center items-center gap-4" />
