@@ -2,6 +2,7 @@ import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
 import Project from '@/components/Project';
 import { SocialIconsList } from '@/components/SocialIconsList';
+import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
 
 // Valid social links
 const validSocialLinks = Object.entries(config.socials || {})
@@ -21,8 +22,9 @@ export default function Home() {
         </div>
       </header>
       <main className="bg-stone-50 dark:bg-stone-950">
-        <div className="bg-white dark:bg-stone-900">
-          <div className="flex justify-center items-center md:gap-24 flex-wrap-reverse min-h-screen px-8 py-16 mx-auto snap-start">
+        <div className="relative bg-white dark:bg-stone-900">
+          <ChevronDoubleDownIcon className="w-4 h-4 absolute bottom-4 left-1/2 -translate-x-1/2" />
+          <div className="flex justify-center items-center -translate-y-8 md:gap-24 flex-wrap-reverse min-h-[95vh] px-8 py-16 mx-auto snap-start">
             <div className="max-w-md">
               <div className="text-4xl font-semibold leading-relaxed">Hi, I&apos;m {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
