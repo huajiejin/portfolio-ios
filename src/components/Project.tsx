@@ -78,7 +78,7 @@ export default function Project({ project, className }: { project: Project, clas
         {
           project.image_url ? (
             <motion.div
-              className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl"
+              className="image-container flex-shrink-0 overflow-hidden rounded-lg bg-transparent"
               initial={{ opacity: 0 }}
               whileInView={{opacity: 1}}
               style={{y}}
@@ -93,7 +93,7 @@ export default function Project({ project, className }: { project: Project, clas
               />
             </motion.div>
           ) : (
-            <div className="max-w-md w-full" />
+            <div className="image-container w-full" />
           )
         }
       </div>

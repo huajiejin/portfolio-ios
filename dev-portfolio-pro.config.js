@@ -29,7 +29,7 @@ module.exports = {
       impact: "Streamlining task management for teams in over 100 countries.",
       description:
         "TaskMaster is a collaborative task management tool allowing teams to organize tasks, set deadlines, and track progress seamlessly.",
-      image_url: "",
+      image_url: "/projects/code2.jpg",
       url: "https://github.com/change-me",
       live_url: "",
       tech_stack: [
@@ -53,7 +53,7 @@ module.exports = {
         "Connecting users on the go with seamless communication across 50 countries.",
       description:
         "MobileChat is a mobile messaging app facilitating real-time communication with friends and groups, supporting multimedia sharing and encryption.",
-      image_url: "/projects/mobile-app.jpg",
+      image_url: "/projects/imessage.png",
       url: "https://github.com/change-me",
       live_url: "",
       tech_stack: ["React Native", "Node.js", "Express", "MongoDB"],
