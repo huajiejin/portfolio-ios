@@ -29,7 +29,12 @@ export default function Project({ project, className }: { project: Project, clas
         className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}
         ref={container}
         >
-        <div className="max-w-md">
+        <motion.div
+          className="max-w-md"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          >
           <div className="text-sm font-medium text-stone-500">{project.name}</div>
           <p className="mt-4 text-4xl font-semibold">{project.impact}</p>
           {
@@ -69,7 +74,7 @@ export default function Project({ project, className }: { project: Project, clas
               </div>
             )
           }
-        </div>
+        </motion.div>
         {
           project.image_url ? (
             <motion.div
