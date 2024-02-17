@@ -72,7 +72,12 @@ export default function Project({ project, className }: { project: Project, clas
         </div>
         {
           project.image_url ? (
-            <motion.div className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl" style={{y}}>
+            <motion.div
+              className="max-w-md flex-shrink-0 overflow-hidden rounded-lg shadow-xl"
+              initial={{ opacity: 0 }}
+              whileInView={{opacity: 1}}
+              style={{y}}
+              >
               <Image
                 src={project.image_url}
                 alt={`Image of ${project.name}`}
