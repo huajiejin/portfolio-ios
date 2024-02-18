@@ -2,7 +2,7 @@ import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
 import WorkItem from '@/components/WorkItem';
 import { SocialIconsList } from '@/components/SocialIconsList';
-import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
+import { ChevronDoubleDownIcon, ChevronDoubleUpIcon } from '@heroicons/react/24/solid'
 
 export default function Home() {
   // Valid social links
@@ -25,7 +25,7 @@ export default function Home() {
           <a href={emailHref}>Contact</a>
         </div>
       </header>
-      <main className="bg-stone-50 dark:bg-stone-950">
+      <main id="top" className="bg-stone-50 dark:bg-stone-950">
         <div className="relative bg-white dark:bg-stone-900">
           <ChevronDoubleDownIcon className="w-4 h-4 absolute bottom-4 left-1/2 -translate-x-1/2" />
           <div className="flex justify-center items-center -translate-y-8 md:gap-24 flex-wrap-reverse min-h-[95vh] px-8 py-16 mx-auto snap-start">
@@ -109,6 +109,12 @@ export default function Home() {
         <div className="mt-4 flex justify-center items-center gap-2 text-xs text-stone-500">
           <span>&#64;{new Date().getFullYear()} All Rights Reserved.</span>
           <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline">Dev Portfolio Pro</a></span>
+        </div>
+        <div className="mt-4 text-xs text-stone-500">
+          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer">
+            <ChevronDoubleUpIcon className="w-4 h-4 -translate-y-[1px]" />
+            Back to Top
+          </a>
         </div>
       </footer>
     </div>
