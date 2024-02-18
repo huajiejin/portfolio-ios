@@ -42,10 +42,11 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
               <p className="mt-4">{workItem.description}</p>
             )
           }
-          <div className="mt-4 flex flex-wrap items-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3">
             <Tag text={workItem.date}>
               <CalendarIcon className="h-4 w-4 -translate-y-[0.5px]" />
             </Tag>
+            <span className="text-stone-500 text-xs">&bull;</span>
             {
               workItem.tech_stack?.map((tech) => (
                 <Tag key={tech} text={tech} />
