@@ -66,7 +66,7 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
                 {
                   workItem.url && (
                     <NewTabButton href={workItem.url}>
-                      Learn more
+                      View details
                       <ArrowRightIcon className="h-4 w-4" />
                     </NewTabButton>
                   )
