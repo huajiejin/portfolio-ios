@@ -19,10 +19,10 @@ export default function Home() {
         <div className="flex gap-8 text-sm font-medium">
           {
             config.work?.length > 0 && (
-              <a href="#work">Work</a>
+              <a className="clickable-text-hover-effect" href="#work">Work</a>
             )
           }
-          <a href={emailHref}>Contact</a>
+          <a className="clickable-text-hover-effect" href={emailHref}>Contact</a>
         </div>
       </header>
       <main id="top" className="bg-stone-50 dark:bg-stone-950">
@@ -54,7 +54,7 @@ export default function Home() {
                       href={config.resume_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary dark:text-blue-500 underline"
+                      className="clickable-text-hover-effect underline hover:no-underline"
                     >
                       Download Resume
                     </a>

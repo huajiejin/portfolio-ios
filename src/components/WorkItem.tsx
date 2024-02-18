@@ -57,7 +57,7 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
               <div className="mt-4 flex justify-start items-center gap-2">
                 {
                   workItem.live_url && (
-                    <NewTabButton href={workItem.live_url}>
+                    <NewTabButton href={workItem.live_url} className="btn-secondary">
                       Live demo
                       <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                     </NewTabButton>
@@ -65,7 +65,7 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
                 }
                 {
                   workItem.url && (
-                    <NewTabButton href={workItem.url}>
+                    <NewTabButton href={workItem.url} className="btn-primary">
                       View details
                       <ArrowRightIcon className="h-4 w-4" />
                     </NewTabButton>
