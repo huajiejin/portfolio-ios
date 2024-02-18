@@ -4,11 +4,15 @@ import WorkItem from '@/components/WorkItem';
 import { SocialIconsList } from '@/components/SocialIconsList';
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
 
-// Valid social links
-const validSocialLinks = Object.entries(config.socials || {})
-  .filter(([_, value]) => !!value)
-
 export default function Home() {
+  // Valid social links
+  const validSocialLinks = Object.entries(config.socials || {})
+    .filter(([_, value]) => !!value)
+  
+  const emailSubject = encodeURIComponent(`Hello ${config.name} - From your portfolio`)
+  const emailBody = encodeURIComponent(`Hello ${config.name},\n\nI found your portfolio, and I would like to connect with you.`)
+  const emailHref = `mailto:${config.email}?subject=${emailSubject}&body=${emailBody}`
+
   return (
     <div>
       <header className="flex justify-end items-center fixed z-10 w-full h-16 p-6 bg-white dark:bg-gray-800">
@@ -18,7 +22,7 @@ export default function Home() {
               <a href="#work">Work</a>
             )
           }
-          <a href={`mailto:${config.email}?subject=Hi,${config.name}&body=I would like to connect`}>Contact</a>
+          <a href={emailHref}>Contact</a>
         </div>
       </header>
       <main className="bg-stone-50 dark:bg-stone-950">
@@ -82,9 +86,24 @@ export default function Home() {
         }
       </main>
       <footer className="py-16 snap-start">
+        <div className="mt-4 flex items-center justify-center gap-4">
+          {
+            config.resume_url && (
+              <a
+                href={config.resume_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                Download Resume
+              </a>
+            )
+          }
+          <a href={emailHref} className="btn-primary">Contact Me</a>
+        </div>
         {
           validSocialLinks.length > 0 && (
-            <SocialIconsList socials={validSocialLinks} className="mt-4 flex justify-center items-center gap-4" />
+            <SocialIconsList socials={validSocialLinks} className="mt-16 flex justify-center items-center gap-4" />
           )
         }
         <div className="mt-4 flex justify-center items-center gap-2 text-xs text-stone-500">
