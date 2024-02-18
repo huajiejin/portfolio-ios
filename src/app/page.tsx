@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
-import Project from '@/components/Project';
+import WorkItem from '@/components/WorkItem';
 import { SocialIconsList } from '@/components/SocialIconsList';
 import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
 
@@ -14,8 +14,8 @@ export default function Home() {
       <header className="flex justify-end items-center fixed z-10 w-full h-16 p-6 bg-white dark:bg-gray-800">
         <div className="flex gap-8 text-sm font-medium">
           {
-            config.projects?.length > 0 && (
-              <a href="#projects">Projects</a>
+            config.work?.length > 0 && (
+              <a href="#work">Work</a>
             )
           }
           <a href={`mailto:${config.email}?subject=Hi,${config.name}&body=I would like to connect`}>Contact</a>
@@ -63,14 +63,14 @@ export default function Home() {
           </div>
         </div>
         {
-          config.projects?.length > 0 && (
-            <div id="projects" className="">
+          config.work?.length > 0 && (
+            <div id="work" className="">
               {
-                config.projects.map((project, index) => {
+                config.work.map((workItem, index) => {
                   return (
-                    <div key={project.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
-                      <Project
-                        project={project}
+                    <div key={workItem.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
+                      <WorkItem
+                        workItem={workItem}
                         className="px-8 py-32 mx-auto snap-start"
                       />
                     </div>

@@ -15,9 +15,9 @@ function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-type Project = typeof config.projects[0];
+type WorkItem = typeof config.work[0];
 
-export default function Project({ project, className }: { project: Project, className?: string}) {
+export default function WorkItem({ workItem, className }: { workItem: WorkItem, className?: string}) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({ target: container, offset: ['start end', 'end start'] });
   const y = useParallax(scrollYProgress, 100);
@@ -25,7 +25,7 @@ export default function Project({ project, className }: { project: Project, clas
   return (
     <LazyMotion features={domAnimation}>
       <div
-        key={project.name}
+        key={workItem.name}
         className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}
         ref={container}
         >
@@ -35,37 +35,37 @@ export default function Project({ project, className }: { project: Project, clas
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           >
-          <div className="text-sm font-medium text-stone-500">{project.name}</div>
-          <p className="mt-4 text-4xl font-semibold">{project.impact}</p>
+          <div className="text-sm font-medium text-stone-500">{workItem.name}</div>
+          <p className="mt-4 text-4xl font-semibold">{workItem.impact}</p>
           {
-            project.description && (
-              <p className="mt-4">{project.description}</p>
+            workItem.description && (
+              <p className="mt-4">{workItem.description}</p>
             )
           }
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <Tag text={project.date}>
+            <Tag text={workItem.date}>
               <CalendarIcon className="h-4 w-4 -translate-y-[0.5px]" />
             </Tag>
             {
-              project.tech_stack?.map((tech) => (
+              workItem.tech_stack?.map((tech) => (
                 <Tag key={tech} text={tech} />
               ))
             }
           </div>
           {
-            (project.live_url || project.url) && (
+            (workItem.live_url || workItem.url) && (
               <div className="mt-4 flex justify-start items-center gap-2">
                 {
-                  project.live_url && (
-                    <NewTabButton href={project.live_url}>
+                  workItem.live_url && (
+                    <NewTabButton href={workItem.live_url}>
                       Live demo
                       <ArrowTopRightOnSquareIcon className="h-4 w-4" />
                     </NewTabButton>
                   )
                 }
                 {
-                  project.url && (
-                    <NewTabButton href={project.url}>
+                  workItem.url && (
+                    <NewTabButton href={workItem.url}>
                       Learn more
                       <ArrowRightIcon className="h-4 w-4" />
                     </NewTabButton>
@@ -76,7 +76,7 @@ export default function Project({ project, className }: { project: Project, clas
           }
         </motion.div>
         {
-          project.image_url ? (
+          workItem.image_url ? (
             <motion.div
               className="image-container flex-shrink-0 overflow-hidden rounded-lg bg-transparent"
               initial={{ opacity: 0 }}
@@ -84,8 +84,8 @@ export default function Project({ project, className }: { project: Project, clas
               style={{y}}
               >
               <Image
-                src={project.image_url}
-                alt={`Image of ${project.name}`}
+                src={workItem.image_url}
+                alt={`Image of ${workItem.name}`}
                 className="w-full h-auto object-cover object-center"
                 width={1080}
                 height={1080}
