@@ -27,7 +27,15 @@ export default function Home() {
       </header>
       <main id="top" className="bg-stone-50 dark:bg-stone-950">
         <div className="relative bg-white dark:bg-stone-900">
-          <ChevronDoubleDownIcon className="w-4 h-4 absolute bottom-4 left-1/2 -translate-x-1/2" />
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-stone-500">
+            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer">
+              <ChevronDoubleDownIcon
+                className="w-4 h-4 -translate-y-[0.5px] animate-zeroBounce"
+                style={{animationDelay: '6s'}}
+                />
+              Featured Work
+            </a>
+          </div>
           <div className="flex justify-center items-center -translate-y-8 md:gap-24 flex-wrap-reverse min-h-[95vh] px-8 py-16 mx-auto snap-start">
             <div className="max-w-md">
               <div className="text-4xl font-semibold leading-relaxed">Hi, I&apos;m {config.name},</div>

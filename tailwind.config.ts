@@ -13,6 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        zeroBounce: 'zeroBounce 1s infinite',
+      },
+      keyframes: {
+        zeroBounce: {
+          '0%, 100%': { transform: 'none' },
+          '50%': { transform: 'translateY(-25%)', 'animation-timing-function': 'cubic-bezier(0.8,0,1,1)' },
+        },
+      },
     },
   },
   plugins: [],
