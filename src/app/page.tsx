@@ -28,7 +28,7 @@ export default function Home() {
       <main id="top" className="bg-stone-50 dark:bg-stone-950">
         <div className="relative bg-white dark:bg-stone-900">
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-stone-500">
-            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer">
+            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer clickable-text-hover-effect-simple">
               <ChevronDoubleDownIcon
                 className="w-4 h-4 -translate-y-[0.5px] animate-zeroBounce"
                 style={{animationDelay: '6s'}}
@@ -116,10 +116,10 @@ export default function Home() {
         }
         <div className="mt-4 flex justify-center items-center gap-2 text-xs text-stone-500">
           <span>&#64;{new Date().getFullYear()} All Rights Reserved.</span>
-          <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline">Dev Portfolio Pro</a></span>
+          <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline clickable-text-hover-effect-simple">Dev Portfolio Pro</a></span>
         </div>
         <div className="mt-4 text-xs text-stone-500">
-          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer">
+          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer clickable-text-hover-effect-simple">
             <ChevronDoubleUpIcon className="w-4 h-4 -translate-y-[1px]" />
             Back to Top
           </a>

@@ -23,6 +23,10 @@ body {
     @apply relative after:absolute after:-z-10 after:left-0 after:right-0 after:bottom-0 after:h-[12px] after:bg-transparent after:hover:bg-primary-300 after:transition-colors after:duration-200;
   }
 
+  .clickable-text-hover-effect-simple {
+    @apply hover:text-primary-600;
+  }
+
   .btn-primary {
     @apply bg-primary-500 text-white bth-hover-effect inline-flex gap-1 items-center px-2 py-1 text-sm border rounded;
   }
