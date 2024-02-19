@@ -1,10 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import config from '../../dev-portfolio-pro.config';
 import WorkItem from '@/components/WorkItem';
 import { SocialIconsList } from '@/components/SocialIconsList';
 import { ChevronDoubleDownIcon, ChevronDoubleUpIcon } from '@heroicons/react/24/solid'
+import DarkModeDropdown from '@/components/DarkModeDropdown';
+import { useSystemDarkModeListener } from '@/hooks/useSystemDarkModeListener';
 
 export default function Home() {
+  useSystemDarkModeListener();
+  
   // Valid social links
   const validSocialLinks = Object.entries(config.socials || {})
     .filter(([_, value]) => !!value)
@@ -15,20 +21,20 @@ export default function Home() {
 
   return (
     <div>
-      <header className="flex justify-end items-center fixed z-10 w-full h-16 p-6 bg-white dark:bg-gray-800">
-        <div className="flex gap-8 text-sm font-medium">
+      <header className="dark-container-2 flex justify-end items-center fixed z-10 w-full h-16 px-6">
+        <div className="flex gap-1 text-sm font-medium">
           {
             config.work?.length > 0 && (
-              <a className="clickable-text-hover-effect" href="#work">Work</a>
+              <a className="flex justify-center items-center px-3 py-2" href="#work"><span className="text-clickable-1">Work</span></a>
             )
           }
-          <a className="clickable-text-hover-effect" href={emailHref}>Contact</a>
+          <a className="flex justify-center items-center px-3 py-2" href={emailHref}><span className="text-clickable-1">Contact</span></a>
         </div>
       </header>
-      <main id="top" className="bg-stone-50 dark:bg-stone-950">
-        <div className="relative bg-white dark:bg-stone-900">
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-stone-500">
-            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer clickable-text-hover-effect-simple">
+      <main id="top">
+        <div className="dark-container-2 relative">
+          <div className="text-secondary absolute bottom-4 left-1/2 -translate-x-1/2 text-xs">
+            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2">
               <ChevronDoubleDownIcon
                 className="w-4 h-4 -translate-y-[0.5px] animate-zeroBounce"
                 style={{animationDelay: '6s'}}
@@ -54,7 +60,7 @@ export default function Home() {
                       href={config.resume_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="clickable-text-hover-effect underline hover:no-underline"
+                      className="text-clickable-1 text-sm underline hover:no-underline"
                     >
                       Download Resume
                     </a>
@@ -80,7 +86,7 @@ export default function Home() {
               {
                 config.work.map((workItem, index) => {
                   return (
-                    <div key={workItem.name} className={`${index % 2 === 1 ? 'bg-white dark:bg-stone-900' : ''}`}>
+                    <div key={workItem.name} className={`${index % 2 === 1 ? 'dark-container-2' : ''}`}>
                       <WorkItem
                         workItem={workItem}
                         className="px-8 py-32 mx-auto snap-start"
@@ -114,15 +120,17 @@ export default function Home() {
             <SocialIconsList socials={validSocialLinks} className="mt-16 flex justify-center items-center gap-4" />
           )
         }
-        <div className="mt-4 flex justify-center items-center gap-2 text-xs text-stone-500">
+        <div className="text-secondary mt-4 flex justify-center items-center gap-2 text-xs">
           <span>&#64;{new Date().getFullYear()} All Rights Reserved.</span>
-          <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline clickable-text-hover-effect-simple">Dev Portfolio Pro</a></span>
+          <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline text-clickable-2">Dev Portfolio Pro</a></span>
         </div>
-        <div className="mt-4 text-xs text-stone-500">
-          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer clickable-text-hover-effect-simple">
-            <ChevronDoubleUpIcon className="w-4 h-4 -translate-y-[1px]" />
+        <div className="text-secondary mt-4 mb-[6px] flex justify-center items-center flex-wrap gap-x-3 text-xs">
+          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2">
+            <ChevronDoubleUpIcon className="w-4 h-4" />
             Back to Top
           </a>
+          <span className="text-xs">&bull;</span>
+          <DarkModeDropdown />
         </div>
       </footer>
     </div>

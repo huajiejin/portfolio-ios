@@ -15,23 +15,88 @@ body {
     @apply max-w-xs;
   }
 
-  .bth-hover-effect {
-    @apply hover:bg-primary-600 hover:text-white transition-colors duration-200;
+  .text-secondary {
+    @apply text-stone-600 dark:text-stone-300;
   }
 
-  .clickable-text-hover-effect {
-    @apply relative after:absolute after:-z-10 after:left-0 after:right-0 after:bottom-0 after:h-[12px] after:bg-transparent after:hover:bg-primary-300 after:transition-colors after:duration-200;
+  .text-clickable-1 {
+    @apply relative after:absolute after:-z-10 after:left-0 after:bottom-0 after:h-[14px] after:w-0 after:bg-transparent after:hover:w-full after:transition-all after:duration-300 after:hover:bg-primary-200 after:dark:hover:bg-primary-500;
   }
 
-  .clickable-text-hover-effect-simple {
-    @apply hover:text-primary-600;
+  .text-clickable-2 {
+    @apply hover:text-primary-600 hover:dark:text-primary-400;
+  }
+
+  .text-clickable-3 {
+    @apply hover:bg-primary-400 hover:text-stone-50;
+  }
+
+  .text-clickable-3.selected {
+    @apply bg-primary-500 text-stone-50;
   }
 
   .btn-primary {
-    @apply bg-primary-500 text-white bth-hover-effect inline-flex gap-1 items-center px-2 py-1 text-sm border rounded;
+    @apply bg-primary-500 hover:bg-primary-400 dark:bg-primary-500 hover:dark:bg-primary-600 text-white inline-flex gap-1 items-center px-2 py-1 text-sm border border-primary-500 dark:border-primary-500 rounded;
   }
 
   .btn-secondary {
-    @apply border-primary-500 text-primary-500 bth-hover-effect inline-flex gap-1 items-center px-2 py-1 text-sm border rounded;
+    @apply border-primary-500 hover:border-primary-600 dark:border-primary-400 dark:hover:border-primary-300 text-primary-500 hover:text-primary-400 dark:text-primary-400 hover:dark:text-primary-300 hover:bg-primary-200/10 inline-flex gap-1 items-center px-2 py-1 text-sm border rounded;
+  }
+
+  .dark-container-1 {
+    @apply bg-white dark:bg-stone-950 text-stone-900 dark:text-stone-50;
+  }
+
+  .dark-container-2 {
+    @apply bg-stone-50 dark:bg-stone-900 text-stone-900 dark:text-stone-50;
+  }
+
+  .dark-container-3 {
+    @apply bg-stone-50 dark:bg-neutral-700 text-stone-900 dark:text-stone-50;
+  }
+
+  @keyframes expand {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  .animate-expand {
+    transform: scaleY(0);
+    animation: expand 0.1s cubic-bezier(.55, .55, .55, .55) forwards;
+  }
+
+  @keyframes grow-out {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-grow-out {
+    transform: scale(0);
+    animation: grow-out 0.1s cubic-bezier(.55, .55, .55, .55) forwards;
+  }
+
+  @keyframes grow-in {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(0);
+    }
+  }
+
+  .animate-grow-in {
+    transform: scale(1);
+    animation: grow-in 0.1s cubic-bezier(.55, .55, .55, .55) forwards;
   }
 }

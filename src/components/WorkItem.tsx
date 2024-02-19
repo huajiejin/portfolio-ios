@@ -35,7 +35,7 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           >
-          <div className="text-sm font-medium text-stone-500">{workItem.name}</div>
+          <div className="text-secondary text-sm font-medium">{workItem.name}</div>
           <p className="mt-4 text-4xl font-semibold">{workItem.impact}</p>
           {
             workItem.description && (
@@ -46,7 +46,7 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
             <Tag text={workItem.date}>
               <CalendarIcon className="h-4 w-4 -translate-y-[0.5px]" />
             </Tag>
-            <span className="text-stone-500 text-xs">&bull;</span>
+            <span className="text-secondary text-xs">&bull;</span>
             {
               workItem.tech_stack?.map((tech) => (
                 <Tag key={tech} text={tech} />
