@@ -10,6 +10,12 @@ module.exports = {
     github: "https://github.com/change-me",
     linkedin: "https://www.linkedin.com/in/change-me",
     x: "https://www.x.com/change-me",
+    ins: "https://www.instagram.com/change-me",
+    tiktok: "https://www.tiktok.com/@change-me",
+    facebook: "https://www.facebook.com/change-me",
+    youtube: "https://www.youtube.com/change-me",
+    discord: "https://discord.gg/change-me",
+    stackoverflow: "https://stackoverflow.com/users/change-me",
   },
   work: [
     {

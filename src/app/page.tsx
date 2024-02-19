@@ -47,7 +47,7 @@ export default function Home() {
               <div className="text-4xl font-semibold leading-relaxed">Hi, I&apos;m {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
               <div className="mt-4 whitespace-pre-wrap">{config.bio}</div>
-              <div className="mt-4 flex gap-6">
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
                 {
                   validSocialLinks.length > 0 && (
                     <SocialIconsList socials={validSocialLinks} className="flex justify-center items-center gap-3" />
