@@ -8,6 +8,19 @@ import { ChevronDoubleDownIcon, ChevronDoubleUpIcon } from '@heroicons/react/24/
 import DarkModeDropdown from '@/components/DarkModeDropdown';
 import { useSystemDarkModeListener } from '@/hooks/useSystemDarkModeListener';
 
+const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+  // If not Safari, return since Safari is the only tested browser supporting 
+  //   smooth scroll without issues with HTML scrolling snap.
+  const ua = navigator?.userAgent;
+  if (!ua?.includes('Safari') || ua?.includes('Chrome')) return;
+  // get element by id
+  const element = document.getElementById(id);
+  if (!element) return;
+  // prevent default behavior
+  e.preventDefault();
+  element.scrollIntoView({ behavior: 'smooth' });
+}
+
 export default function Home() {
   useSystemDarkModeListener();
   
@@ -25,16 +38,24 @@ export default function Home() {
         <div className="flex gap-1 text-sm font-medium">
           {
             config.work?.length > 0 && (
-              <a className="flex justify-center items-center px-3 py-2" href="#work"><span className="text-clickable-1">Work</span></a>
+              <a
+                href="#work"
+                className="flex justify-center items-center px-3 py-2"
+                onClick={e => smoothScrollTo(e, 'work')}>
+                  <span className="text-clickable-1">Work</span>
+                </a>
             )
           }
           <a className="flex justify-center items-center px-3 py-2" href={emailHref}><span className="text-clickable-1">Contact</span></a>
         </div>
       </header>
-      <main id="top">
+      <main>
         <div className="dark-container-2 relative">
           <div className="text-secondary absolute bottom-4 left-1/2 -translate-x-1/2 text-xs">
-            <a href="#work" className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2">
+            <a
+              href="#work"
+              className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2"
+              onClick={e => smoothScrollTo(e, 'work')}>
               <ChevronDoubleDownIcon
                 className="w-4 h-4 -translate-y-[0.5px] animate-zeroBounce"
                 style={{animationDelay: '6s'}}
@@ -42,7 +63,7 @@ export default function Home() {
               Featured Work
             </a>
           </div>
-          <div className="flex justify-center items-center -translate-y-8 md:gap-24 flex-wrap-reverse min-h-[95vh] px-8 py-16 mx-auto snap-start">
+          <div id="top" className="flex justify-center items-center -translate-y-8 md:gap-24 flex-wrap-reverse min-h-[95vh] px-8 py-16 mx-auto snap-start">
             <div className="max-w-md">
               <div className="text-4xl font-semibold leading-relaxed">Hi, I&apos;m {config.name},</div>
               <div className="text-4xl font-semibold">{config.role}</div>
@@ -125,7 +146,10 @@ export default function Home() {
           <span>Powered by <a href="https://github.com/huajiejin/dev-portfolio-pro" target="_blank" rel="noopener noreferrer" className="underline text-clickable-2">Dev Portfolio Pro</a></span>
         </div>
         <div className="text-secondary mt-4 mb-[6px] flex justify-center items-center flex-wrap gap-x-3 text-xs">
-          <a href="#top" className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2">
+          <a
+            href="#top"
+            className="flex justify-center items-center gap-1 cursor-pointer text-clickable-2"
+            onClick={e => smoothScrollTo(e, 'top')}>
             <ChevronDoubleUpIcon className="w-4 h-4" />
             Back to Top
           </a>
