@@ -8,7 +8,7 @@ import NewTabButton from './NewTabButton';
 // FIXME: Remove framer-motion, because Parallax Scrolling is relatively simple to
 //  implement, and it's not worth the extra bundle size (26kb after tree shaking)
 import { m as motion, LazyMotion, domAnimation, MotionValue, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -17,24 +17,50 @@ function useParallax(value: MotionValue<number>, distance: number) {
 
 type WorkItem = typeof config.work[0];
 
-export default function WorkItem({ workItem, className }: { workItem: WorkItem, className?: string}) {
+export default function WorkItem({ workItem, className }: { workItem: WorkItem, className?: string }) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({ target: container, offset: ['start end', 'end start'] });
   const y = useParallax(scrollYProgress, 100);
+
+  const [windowWidth, setWindowWidth] = useState(0);
+  useEffect(() => {
+    setWindowWidth(window?.innerWidth || 0);
+    const handleResize = () => {
+      setWindowWidth(window?.innerWidth || 0);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const [workItemTextContainerProps, setWorkItemTextContainerProps] = useState({});
+  const [workItemImageContainerProps, setWorkItemImageContainerProps] = useState({});
+  useEffect(() => {
+    const isMobile = windowWidth < 640;
+    setWorkItemTextContainerProps(
+      isMobile ?
+        { initial: { opacity: 1 }, whileInView: { opacity: 1 }, transition: {} } :
+        { initial: { opacity: 0 }, whileInView: { opacity: 1 }, transition: { duration: 0.8, delay: 0.1 } }
+    )
+    setWorkItemImageContainerProps(
+      isMobile ?
+        { initial: { opacity: 1 }, whileInView: { opacity: 1 }, style: {} } :
+        { initial: { opacity: 0 }, whileInView: { opacity: 1 }, style: { y } }
+    );
+  }, [y, windowWidth]);
 
   return (
     <LazyMotion features={domAnimation}>
       <div
         key={workItem.name}
-        className={`flex justify-center items-center gap-24 flex-wrap-reverse ${className || ''}`}
+        className={`flex justify-center items-center gap-4 sm:gap-24 flex-wrap-reverse ${className || ''}`}
         ref={container}
-        >
+      >
         <motion.div
           className="max-w-md"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          >
+          {...workItemTextContainerProps}
+        >
           <div className="text-secondary text-sm font-medium">{workItem.name}</div>
           <p className="mt-4 text-4xl font-semibold">{workItem.impact}</p>
           {
@@ -80,10 +106,8 @@ export default function WorkItem({ workItem, className }: { workItem: WorkItem, 
           workItem.image_url ? (
             <motion.div
               className="image-container flex-shrink-0 overflow-hidden rounded-lg bg-transparent"
-              initial={{ opacity: 0 }}
-              whileInView={{opacity: 1}}
-              style={{y}}
-              >
+              {...workItemImageContainerProps}
+            >
               <Image
                 src={workItem.image_url}
                 alt={`Image of ${workItem.name}`}

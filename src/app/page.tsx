@@ -23,11 +23,11 @@ const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: 
 
 export default function Home() {
   useSystemDarkModeListener();
-  
+
   // Valid social links
   const validSocialLinks = Object.entries(config.socials || {})
     .filter(([_, value]) => !!value)
-  
+
   const emailSubject = encodeURIComponent(`Hello ${config.name} - From your portfolio`)
   const emailBody = encodeURIComponent(`Hello ${config.name},\n\nI found your portfolio, and I would like to connect with you.`)
   const emailHref = `mailto:${config.email}?subject=${emailSubject}&body=${emailBody}`
@@ -42,8 +42,8 @@ export default function Home() {
                 href="#work"
                 className="flex justify-center items-center px-3 py-2"
                 onClick={e => smoothScrollTo(e, 'work')}>
-                  <span className="text-clickable-1">Work</span>
-                </a>
+                <span className="text-clickable-1">Work</span>
+              </a>
             )
           }
           <a className="flex justify-center items-center px-3 py-2" href={emailHref}><span className="text-clickable-1">Contact</span></a>
@@ -58,8 +58,8 @@ export default function Home() {
               onClick={e => smoothScrollTo(e, 'work')}>
               <ChevronDoubleDownIcon
                 className="w-4 h-4 -translate-y-[0.5px] animate-zeroBounce"
-                style={{animationDelay: '6s'}}
-                />
+                style={{ animationDelay: '6s' }}
+              />
               Featured Work
             </a>
           </div>
@@ -110,7 +110,7 @@ export default function Home() {
                     <div key={workItem.name} className={`${index % 2 === 1 ? 'dark-container-2' : ''}`}>
                       <WorkItem
                         workItem={workItem}
-                        className="px-8 py-32 mx-auto snap-start"
+                        className="px-8 py-8 sm:py-32 mx-auto snap-start"
                       />
                     </div>
                   );
