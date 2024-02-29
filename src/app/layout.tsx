@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="sm:snap-y sm:snap-mandatory" lang="en">
       <body className="dark-container-1">{children}</body>
     </html>
   );
