@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
   // basePath should match the repository name if you are deploying to GitHub pages
-  basePath: "/portfolio-fe",
+  basePath: "/portfolio-mobile",
   images: {
     unoptimized: true,
   },
